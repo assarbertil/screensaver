@@ -1,11 +1,19 @@
+@font-face {
+  font-family: "Roboto Mono";
+  font-style: normal;
+  font-weight: 400;
+  src: url(./RobotoMono-Regular.ttf) format("truetype");
+}
+
 * {
   cursor: none;
   background: #060606;
   margin: 0;
   padding: 0;
 }
+
 #time {
-  font-family: "SF Mono", monospace;
+  font-family: "Roboto Mono", monospace;
   font-weight: 400;
   letter-spacing: 0.5rem;
   font-size: 3rem;
@@ -15,6 +23,7 @@
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
 }
+
 svg {
   height: 4rem;
   position: absolute;

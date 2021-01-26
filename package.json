@@ -1,6 +1,6 @@
 {
-  "name": "scrapp",
-  "productName": "scrapp",
+  "name": "tron-screensaver",
+  "productName": "Tron Screensaver",
   "version": "1.0.0",
   "description": "My Electron application description",
   "main": "dist/index.js",

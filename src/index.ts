@@ -13,33 +13,37 @@ const createWindow = () => {
   const displays = screen.getAllDisplays();
 
   let mainWindow = new BrowserWindow({
-    width,
-    height,
+    // width,
+    // height,
     fullscreen: true,
     frame: false,
     titleBarStyle: "hidden",
   });
-
   mainWindow.loadFile(path.join(__dirname, "../src/index.html"));
 
   const externalDisplay = displays.find(display => {
     return display.bounds.x !== 0 || display.bounds.y !== 0;
   });
 
-  if (externalDisplay) {
+  console.log(displays);
+
+  // What is supposed to suport multiple monitors
+  displays.forEach(function (v) {
+    if (screen.getPrimaryDisplay().id == v.id) return;
     const win = new BrowserWindow({
-      x: externalDisplay.bounds.x + 50,
-      y: externalDisplay.bounds.y + 50,
+      x: v.bounds.x,
+      y: v.bounds.y,
       fullscreen: true,
       frame: false,
       titleBarStyle: "hidden",
     });
     win.loadFile(path.join(__dirname, "../src/secondary.html"));
-  }
+  });
 
   // Open the DevTools.
   //mainWindow.webContents.openDevTools();
 
+  // Close every window on single close
   mainWindow.on("close", () => {
     mainWindow = null;
     app.quit();
@@ -70,7 +74,3 @@ app.on("activate", () => {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
-
-//attach event handler here
-
-// Close on mouse move or keyboard entry
