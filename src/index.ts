@@ -7,25 +7,16 @@ if (require("electron-squirrel-startup")) {
   app.quit();
 }
 
-const createWindow = () => {
+const createWindow = (): void => {
   // Create the browser window.
-  const { width, height } = screen.getPrimaryDisplay().workAreaSize;
   const displays = screen.getAllDisplays();
 
   let mainWindow = new BrowserWindow({
-    // width,
-    // height,
     fullscreen: true,
     frame: false,
     titleBarStyle: "hidden",
   });
   mainWindow.loadFile(path.join(__dirname, "../src/index.html"));
-
-  const externalDisplay = displays.find(display => {
-    return display.bounds.x !== 0 || display.bounds.y !== 0;
-  });
-
-  console.log(displays);
 
   // What is supposed to suport multiple monitors
   displays.forEach(function (v) {

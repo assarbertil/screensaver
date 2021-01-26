@@ -1,5 +1,5 @@
 setTimeout(() => {
-  const myListener = () => {
+  const myListener = (): void => {
     window.close();
   };
   document.addEventListener("mousemove", myListener, false);
