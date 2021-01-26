@@ -9,20 +9,13 @@ if (require("electron-squirrel-startup")) {
 }
 var createWindow = function () {
     // Create the browser window.
-    var _a = electron_1.screen.getPrimaryDisplay().workAreaSize, width = _a.width, height = _a.height;
     var displays = electron_1.screen.getAllDisplays();
     var mainWindow = new electron_1.BrowserWindow({
-        // width,
-        // height,
         fullscreen: true,
         frame: false,
         titleBarStyle: "hidden"
     });
     mainWindow.loadFile(path.join(__dirname, "../src/index.html"));
-    var externalDisplay = displays.find(function (display) {
-        return display.bounds.x !== 0 || display.bounds.y !== 0;
-    });
-    console.log(displays);
     // What is supposed to suport multiple monitors
     displays.forEach(function (v) {
         if (electron_1.screen.getPrimaryDisplay().id == v.id)

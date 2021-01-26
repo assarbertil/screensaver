@@ -4,10 +4,8 @@ let s = 0;
 let m = 0;
 let h = 0;
 let d = 0;
-let M = 0;
-let y = 0;
 
-function showTime() {
+function showTime(): void {
   cs = cs + 1;
 
   if (cs === 100) {
@@ -36,8 +34,7 @@ function showTime() {
     .slice(0, 2)}:${s
     .toString()
     .padStart(2, "0")
-    .slice(0, 2)}:${cs.toString().padStart(2, "0").slice(-2)}
-    `;
+    .slice(0, 2)}:${cs.toString().padStart(2, "0").slice(-2)}`;
   document.getElementById("time").innerText = time;
 }
 setInterval(showTime, 10);
