@@ -4,8 +4,6 @@ var s = 0;
 var m = 0;
 var h = 0;
 var d = 0;
-var M = 0;
-var y = 0;
 function showTime() {
     cs = cs + 1;
     if (cs === 100) {
@@ -33,7 +31,7 @@ function showTime() {
         .slice(0, 2) + ":" + s
         .toString()
         .padStart(2, "0")
-        .slice(0, 2) + ":" + cs.toString().padStart(2, "0").slice(-2) + "\n    ";
+        .slice(0, 2) + ":" + cs.toString().padStart(2, "0").slice(-2);
     document.getElementById("time").innerText = time;
 }
 setInterval(showTime, 10);
